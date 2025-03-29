@@ -10,7 +10,7 @@ conn = psycopg2.connect(DATABASE_URL)
 cur = conn.cursor()
 
 # Employee Form Page
-@app.route("/", methods=["GET", "POST"])
+@app.route("/", methods=["GET", "POST", "HEAD"])
 def employee_form():
     if request.method == "POST":
         name = request.form["name"]
@@ -31,7 +31,7 @@ def employee_form():
     return render_template("employee_form.html")
 
 # Admin Login Page
-@app.route("/admin", methods=["GET", "POST"])
+@app.route("/admin", methods=["GET", "POST", "HEAD"])
 def admin_login():
     if request.method == "POST":
         username = request.form["username"]
